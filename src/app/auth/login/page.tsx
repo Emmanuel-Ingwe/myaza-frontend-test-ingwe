@@ -2,11 +2,11 @@ import Login from "../../../hooks/../components/auth/login";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "PAVA | Login",
+  title: "UIFRY | Login",
 };
 
 const LoginPage = () => {
-	return <Login />;
+  return <Login />;
 };
 
 export default LoginPage;
