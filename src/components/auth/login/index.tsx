@@ -30,16 +30,23 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full bg-white min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-y-5">
+    <div className="w-full bg-[#1D1D41] min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-y-5">
       <main className="col-span-1 order-2 lg:order-1 flex items-center justify-center">
-        <div className="space-y-4 lg:space-y-12 w-full max-lg:container lg:max-w-[491px] lg:px-4">
-          <div className="">
-            <Image src={"/icons/logo.svg"} alt="logo" height={50} width={174} />
+        <div className="space-y-4 lg:space-y-12 text-center w-full max-lg:container lg:max-w-[491px] lg:px-4">
+          <div className="flex items-center justify-center">
+            <Image
+              src={"/images/logo-signup.svg"}
+              alt="logo"
+              height={50}
+              width={174}
+            />
           </div>
           <div className="space-y-1 lg:space-y-2">
-            <h1 className="text-black-500 text-[35px] font-bold">Sign In</h1>
-            <h1 className="text-[13px] lg:text-[15px] font-normal text-black-10">
-              Welcome Back! Please enter your details
+            <h1 className="text-black-500 text-[35px] font-bold">
+              Welcome back, Ali Riaz 🙇🏾‍♀️
+            </h1>
+            <h1 className="text-[13px] lg:text-[16px] font-normal text-[#DCD9D9]">
+              Login to access your Uifry Account
             </h1>
           </div>
 
@@ -47,7 +54,7 @@ const Login = () => {
             <form onSubmit={methods.handleSubmit(onSubmit)}>
               <div className="space-y-4 lg:space-y-6">
                 <Input
-                  label="Email"
+                  label="Email Address"
                   name="email"
                   type="email"
                   placeholder="Enter your Email address"
@@ -93,7 +100,7 @@ const Login = () => {
           </FormProvider>
         </div>
       </main>
-      <aside className="col-span-1 lg:order-2 py-1.5 lg:py-5 max-lg:container lg:px-10">
+      <aside className="bg-[#141332] col-span-1 lg:order-2 py-1.5 lg:py-5 max-lg:container lg:px-10">
         <div className="relative h-[366px] lg:h-full">
           <div className="absolute w-full h-full rounded-2xl">
             <Image
