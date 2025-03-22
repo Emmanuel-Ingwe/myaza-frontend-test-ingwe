@@ -6,8 +6,42 @@ import Input from "@/components/global/Input";
 import { useRouter } from "next/navigation";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+
+interface Testimonial {
+  text: string;
+  author: string;
+  location: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    text: "I’ve been using Uifry for over a year, and it’s helped simplify all my payments.",
+    author: "Ali Riaz",
+    location: "Singapore",
+  },
+  {
+    text: "Uifry changed the way I handle my finances. Super intuitive and easy to use!",
+    author: "Sophia Lee",
+    location: "USA",
+  },
+  {
+    text: "Best financial dashboard out there. Highly recommend!",
+    author: "Carlos Mendes",
+    location: "Brazil",
+  },
+];
 
 const Login = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const router = useRouter();
 
   const methods = useForm({
@@ -57,61 +91,76 @@ const Login = () => {
                   label="Email Address"
                   name="email"
                   type="email"
-                  placeholder="Enter your Email address"
+                  placeholder="E.g Aliriaz@Uifry.com"
                   rules={["required", "email"]}
                   paddingRight="pr-18"
                   width="491px"
                 />
+
                 <Input
                   label="Password"
                   name="password"
                   type="password"
-                  placeholder="Enter your Password"
+                  placeholder="********"
                   rules={["required"]}
-                  right={
-                    <div className="w-9">
-                      <Image
-                        src="/icons/unhide.svg"
-                        alt="unhide"
-                        height={24}
-                        width={24}
-                      />
-                    </div>
-                  }
                 />
               </div>
-              <div className="mt-6 flex items-center space-x-4 justify-between">
-                <Checkbox
-                  name="rememberMe"
-                  id="rememberMe"
-                  label="Keep me logged in"
-                  labelClassName="text-sm"
-                />
-                <button className="text-sm text-primary font-semibold">
-                  Forgot Password?
+              <div className="mt-6 flex items-center space-x-4 justify-end">
+                <button className="text-[16px] text-[#DCD9D9] text-primary font-semibold">
+                  I Forgot My Password!
                 </button>
               </div>
-              <div className="max-w-full my-11 lg:mt-20 mx-auto">
-                <Button type="submit" disabled={!isValid} className="w-full">
-                  Sign In
+              <div className="max-w-full my-11 lg:mt-12 mx-auto">
+                <Button
+                  type="submit"
+                  disabled={!isValid}
+                  className="w-full bg-[#CBC8FF] border-none text-[#1D1D41]">
+                  Login
                 </Button>
+                <p className="text-[16px] mt-3.5">
+                  Not Ali Riaz?{" "}
+                  <a href="" className="underline">
+                    Login To Continue
+                  </a>
+                </p>
               </div>
             </form>
           </FormProvider>
         </div>
       </main>
-      <aside className="bg-[#141332] col-span-1 lg:order-2 py-1.5 lg:py-5 max-lg:container lg:px-10">
-        <div className="relative h-[366px] lg:h-full">
-          <div className="absolute w-full h-full rounded-2xl">
+
+      <aside className="bg-[#141332] col-span-1 lg:order-2 py-1.5 lg:py-5 max-lg:container lg:px-0 ">
+        {/* Sliding Testimonial Section */}
+        <div className="max-w-xl m-15 ml-24">
+          <div className="flex mb-3">
             <Image
-              src="/images/admin-cover.png"
-              alt="admin-cover"
-              height={1000}
-              width={1000}
-              layout="fit"
-              className="size-full object-cover rounded-lg bg-cover"
+              src="/icons/star-rating.svg"
+              alt="Dashboard Preview"
+              height={24}
+              width={117}
+              className=""
             />
           </div>
+          <p className="text-3xl font-bold mb-4 transition-opacity duration-500">
+            "{testimonials[index].text}"
+          </p>
+          <p className="text-lg font-semibold text-gray-400">
+            {testimonials[index].author}
+          </p>
+          <p className="text-sm font-semibold text-gray-400">
+            {testimonials[index].location}
+          </p>
+        </div>
+
+        {/* Large Dashboard Image */}
+        <div className="absolute bottom-0 right-0 w-2xl justify-center hidden lg:block">
+          <Image
+            src="/images/bg-image.png"
+            alt="Dashboard Preview"
+            height={584}
+            width={919}
+            className="rounded-xl shadow-lg w-full"
+          />
         </div>
       </aside>
     </div>
