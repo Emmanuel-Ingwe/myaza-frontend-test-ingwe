@@ -26,11 +26,11 @@ const Navigation = () => {
       ),
     },
     {
-      name: "User Management",
-      to: "/userManagement",
+      name: "Analytics",
+      to: "/analytics",
       icon: (
         <Image
-          src="/icons/shopping-bag.svg"
+          src="/icons/analytics.svg"
           alt="dashboard"
           width={20}
           height={20}
@@ -38,35 +38,18 @@ const Navigation = () => {
       ),
     },
     {
-      name: "Transactions",
-      to: "/transactions",
+      name: "My Wallet",
+      to: "/wallet",
       icon: (
-        <Image
-          src="/icons/bar-chart.svg"
-          alt="dashboard"
-          width={20}
-          height={20}
-        />
+        <Image src="/icons/wallet.svg" alt="dashboard" width={20} height={20} />
       ),
     },
     {
-      name: "Reporting",
-      to: "/reporting",
+      name: "Account",
+      to: "/account",
       icon: (
         <Image
-          src="/icons/announcement.svg"
-          alt="dashboard"
-          width={20}
-          height={20}
-        />
-      ),
-    },
-    {
-      name: "Administrator",
-      to: "/administrator",
-      icon: (
-        <Image
-          src="/icons/announcement.svg"
+          src="/icons/accounts.svg"
           alt="dashboard"
           width={20}
           height={20}
@@ -78,7 +61,7 @@ const Navigation = () => {
       to: "/settings",
       icon: (
         <Image
-          src="/icons/announcement.svg"
+          src="/icons/settings.svg"
           alt="dashboard"
           width={20}
           height={20}
@@ -98,31 +81,34 @@ const Navigation = () => {
             width={130}
           />
         </div>
-        <Link href="/dashboard" className="flex pb-6 text-black-10 py-7 pl-6">
-          Main Menu
-        </Link>
         <div className="flex flex-col justify-between">
-          <ul className="px-2.5 space-y-2">
+          <ul className="px-5.5 space-y-1">
             {links.map((link) => {
               return <NavigationLink key={link.name} link={link} />;
             })}
           </ul>
         </div>
 
-        <div className="flex items-center bg-Asecondary mx-3 rounded-lg p-3 mb-14">
-          <Image
-            src="/icons/bitmoji.svg"
-            alt="bitmoji"
-            width={34}
-            height={34}
-          />
+        <div className="flex items-center bg-Asecondary border-t border-t-[#4B4B99] w-[216px] pt-16 -[#4B4B99] ml-7 mx-3 p-3 mb-4">
+          <Image src="/icons/help.svg" alt="dashboard" width={20} height={20} />
           <div className="justfy-center flex flex-col text-white pl-3">
-            <h1 className="text-sm">John Doe</h1>
-            <p className="text-xs">Admin</p>
+            <h1 className="text-sm">Help Center</h1>
           </div>
         </div>
 
-        <div className="px-2.5">
+        <div className="flex items-center bg-Asecondary mx-3 rounded-lg ml-7 p-3 mb-14">
+          <Image
+            src="/icons/darkmood.svg"
+            alt="dashboard"
+            width={20}
+            height={20}
+          />
+          <div className="justfy-center flex flex-col text-white pl-3">
+            <h1 className="text-sm">Dark Theme</h1>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 px-2.5">
           <button
             onClick={() => {
               router.push("/auth/login");

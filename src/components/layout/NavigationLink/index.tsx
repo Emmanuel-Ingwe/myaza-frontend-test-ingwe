@@ -92,14 +92,16 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
           className={cn(
             "block transition-all rounded-lg w-full text-black-10 px-4 my-5 py-4 hover:font-semibold duration-500",
             {
-              "bg-Asecondary text-white font-normal hover:font-normal":
+              "bg-[#CBC8FF] text-[#2D2B4D] font-semibold hover:font-normal":
                 pathname.includes(link.absoluteRoute || link.to),
             }
           )}>
           <div className="flex items-center space-x-3">
             <div
               className={cn("fill-black-10 transition-all", {
-                "fill-white": pathname.includes(link.absoluteRoute || link.to),
+                "fill-[#2D2B4D]": pathname.includes(
+                  link.absoluteRoute || link.to
+                ),
               })}>
               {link.icon}
             </div>
