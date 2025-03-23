@@ -1,5 +1,8 @@
 import React from "react";
 import Analytics from "./analytics";
+import Card from "./card";
+import Transactions from "./transactions";
+import Activity from "./activity";
 
 const index = () => {
   return (
@@ -8,14 +11,20 @@ const index = () => {
         Here's what's happening with your store today.
       </h1>
       <div className="w-full flex grid-cols-2 gap-4">
-        <div className="w-[53%]">
+        <div className="w-[65%] mr-10">
           <Analytics />
         </div>
-        <div className="">My cards</div>
+        <div className="w-[35%]">
+          <Card />
+        </div>
       </div>
-      <div>
-        <div className="">Recent Trans</div>
-        <div className="">Activity</div>
+      <div className="w-full flex grid-cols-2 gap-4">
+        <div className="w-[65%] mr-10">
+          <Transactions />
+        </div>
+        <div className="w-[35%]">
+          <Activity />
+        </div>
       </div>
     </section>
   );

@@ -37,9 +37,8 @@ export default {
 				},
 			},
 			fontFamily: {
-				Roboto: ["var(--roboto)"],
-				OpenSans: ["var(--open-sans)"],
-			},
+				sans: ['Inter', 'sans-serif'],
+			  },
 			container: {
 				center: true,
 				padding: {
