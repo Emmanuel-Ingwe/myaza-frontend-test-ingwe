@@ -69,7 +69,7 @@ const Login = () => {
         <div className="space-y-4 lg:space-y-12 text-center w-full max-lg:container lg:max-w-[491px] lg:px-4">
           <div className="flex items-center justify-center">
             <Image
-              src={"/images/logo-signup.svg"}
+              src={"/icons/logo-signup.svg"}
               alt="logo"
               height={50}
               width={174}
