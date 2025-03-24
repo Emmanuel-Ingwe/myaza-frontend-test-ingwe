@@ -10,19 +10,19 @@ const index = () => {
       <h1 className="mb-9 text-[#C1C1C1] font-medium">
         Here's what's happening with your store today.
       </h1>
-      <div className="w-full flex grid-cols-2 gap-4">
-        <div className="w-[65%] mr-10">
+      <div className="grid grid-cols-3 gap-8">
+        <div className="col-span-2">
           <Analytics />
         </div>
-        <div className="w-[35%]">
+        <div className="col-span-1">
           <Card />
         </div>
       </div>
-      <div className="w-full flex grid-cols-2 gap-4">
-        <div className="w-[65%] mr-10">
+      <div className="grid grid-cols-3 gap-8 mt-1">
+        <div className="col-span-2">
           <Transactions />
         </div>
-        <div className="w-[35%]">
+        <div className="col-span-1">
           <Activity />
         </div>
       </div>
